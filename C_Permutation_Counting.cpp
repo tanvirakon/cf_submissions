@@ -20,15 +20,11 @@ using namespace std;
 bool check(vector<int> a, int n, int mid, int k)
 {
     int sum = 0, flag = 0;
-    f0(n) sum += max(flag, mid - a[i]);
+    f0(n) sum += max(flag, (mid - a[i]));
+    // debug(sum);
     if (sum > k)
         return false;
-    else
-    {
-        debug(sum);
-        debug(mid);
-        return true;
-    }
+    return true;
 }
 void solve()
 {
@@ -37,25 +33,36 @@ void solve()
     cin >> n >> k;
     vector<int> a(n);
     f0(n) cin >> a[i];
-    int l0 = 0, hi = 100;
-    while (l0 < hi)
+    int lo = 0, hi = 1e12;
+    bool found = 0;
+    int cnt=0;
+    int ans=lo;
+    while (lo <= hi)
     {
-        // int mid = l0 + ((hi - l0) / 2);
-        int mid = (l0 + hi + 1) / 2;
+        // if(cnt++>20)break;
+        
+        // int mid = (lo + hi) / 2;
+        int mid = lo + ((hi - lo) / 2);
+        // int mid = (lo + hi + 1) / 2;
+        // cout<<"lo="<<lo<<" hi="<<hi<<" mid="<<mid<<endl;
         if (check(a, n, mid, k))
-            l0 = mid;
+        {
+            ans=mid;
+            lo = mid+1;
+        }
         else
+        {
             hi = mid - 1;
+        }
+       
     }
-    debug(l0);
-    sum = n * (l0 - 1) + 1;
-    cout << "sum " << sum << endl;
+    sum = n * (ans - 1) + 1;
     f0(n)
     {
-        if (a[i] > l0)
+        if (a[i] > ans)
             sum++;
         else
-            k -= (l0 - a[i]);
+            k -= (ans - a[i]);
     }
     cout << sum + k << endl;
 }

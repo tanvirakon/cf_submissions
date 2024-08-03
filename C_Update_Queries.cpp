@@ -3,7 +3,7 @@
 using namespace std;
 #define int long long int
 #define endl '\n'
-#define nn 1000000007
+#define nn 1e7 + 5
 #define ff first
 #define ss second
 #define YES cout << "YES\n"
@@ -20,10 +20,41 @@ using namespace std;
 void solve()
 {
     int sum = 0, flag = 0;
-    cout << "HELLO";
+    int n, m;
+    cin >> n >> m;
+    string a, b;
+    cin >> a;
+    vector<int> v(m);
+    f0(m) cin >> v[i];
+    cin >> b;
+    sort(all(b));
+    sort(all(v));
+    // auto it = unique(all(v));
+    // v.resize(distance(v.begin(), it));
+    set<int> set;
+    f0(m) set.insert(v[i]);
+    v.clear();
+    for (auto i : set)
+        v.push_back(i);
+    string k = "";
+    int j = 0;
+    f0(n)
+    {
+        if (i == v[j] - 1)
+        {
+            k += b[j];
+            j++;
+        }
+        else
+            k += a[i];
+    }
+    cout << k << endl;
 }
 int32_t main()
 {
     fast();
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
 }

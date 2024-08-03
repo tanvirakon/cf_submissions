@@ -1,9 +1,9 @@
 // In the name of Allah the most beneficent the most merciful - sūrat l-naml(27:30)
 #include <bits/stdc++.h>
 using namespace std;
-// #define int long long int
+#define int long long int
 #define endl '\n'
-#define nn 1000000007
+#define nn 1e7 + 5
 #define ff first
 #define ss second
 #define YES cout << "YES\n"
@@ -17,20 +17,24 @@ using namespace std;
         ios_base::sync_with_stdio(false); \
         cin.tie(NULL);                    \
     }
-class a1
-{
-private:
-    int data;
-
-public:
-    a1(int a) { data = a1; }
-} void solve()
+void solve()
 {
     int sum = 0, flag = 0;
-    akon a1(5);
+    int n, m;
+    cin >> n >> m;
+    int k = ceil((m * 1.0) / 2);
+    int left = ;
+    n -= left;
+    // debug(n);
+    int p = ceil((n * 1.0) / 15);
+    // debug(p);
+    cout << k + max(p, flag) << endl;
 }
-int main()
+int32_t main()
 {
     fast();
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
 }

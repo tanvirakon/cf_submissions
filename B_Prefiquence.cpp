@@ -1,44 +1,59 @@
-// In the name of Allah the most beneficent the most merciful - sūrat l-naml(27:30)
-#include <bits/stdc++.h>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <map>
+
 using namespace std;
-#define int long long int
-#define endl '\n'
-#define nn 1e7 + 5
-#define ff first
-#define ss second
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
-#define f0(n) for (int i = 0; i < n; i++)
-#define f1(n) for (int i = 1; i < n; i++)
-#define all(_a) _a.begin(), _a.end()
-#define debug(x) cerr << (#x) << " " << (x) << endl
-#define fast()                            \
-    {                                     \
-        ios_base::sync_with_stdio(false); \
-        cin.tie(NULL);                    \
+
+string decode_secret(string filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cerr << "Error: Could not open the file " << filename << endl;
+        return "";
     }
-void solve()
-{
-    int sum = 0, flag = 0;
-    int n, m;
-    cin >> n >> m;
-    string a, b;
-    cin >> a >> b;
-    int i = 0, j = 0;
-    while (i < n and j < m)
-    {
-        if (a[i] == b[j])
-            i++, j++;
-        else
-            j++;
+
+    map<int, string> data_map;
+    int num;
+    string word;
+
+    // Read the file and store the pairs in the map
+    while (file >> num >> word) {
+        data_map[num] = word;
     }
-    cout << i << endl;
+    file.close();
+
+    // Construct the pyramid structure and collect the indices
+    int level = 1;
+    int index = 1;
+    stringstream secret_message;
+    bool first_word = true;
+
+    while (index <= data_map.size()) {
+        int start_index = index;
+        int end_index = index + level - 1;
+
+        if (end_index > data_map.size()) {
+            break;
+        }
+
+        if (first_word) {
+            first_word = false;
+        } else {
+            secret_message << " ";
+        }
+
+        secret_message << data_map[end_index];
+        index = end_index + 1;
+        level++;
+    }
+
+    return secret_message.str();
 }
-int32_t main()
-{
-    fast();
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
+
+int main() {
+    string filename = "input_dataset.txt";
+    string secret_message = decode_secret(filename);
+    cout << secret_message << endl;
+    return 0;
 }
