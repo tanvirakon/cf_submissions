@@ -19,18 +19,20 @@ using namespace std;
     }
 class a1
 {
-private:
-    int data;
-
 public:
-    a1(int a) { data = a1; }
-} void solve()
-{
-    int sum = 0, flag = 0;
-    akon a1(5);
-}
+    int data;
+    a1(int a)
+    {
+        data = a;
+    }
+    void dis()
+    {
+        cout << data << endl;
+    }
+};
+
 int main()
 {
     fast();
-    solve();
+   int 
 }

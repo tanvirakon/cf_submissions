@@ -3,7 +3,7 @@
 using namespace std;
 #define int long long int
 #define endl '\n'
-#define nn 1000000007
+#define nn 1e7 + 5
 #define ff first
 #define ss second
 #define YES cout << "YES\n"
@@ -17,34 +17,41 @@ using namespace std;
         ios_base::sync_with_stdio(false); \
         cin.tie(NULL);                    \
     }
-double log_base(double a, double b)
-{
-    double low = 0, high = a, mid;
-    double epsilon = 1e-10; // Precision level
-
-    while (high - low > epsilon)
-    {
-        mid = (low + high) / 2;
-        if (pow(b, mid) < a)
-        {
-            low = mid;
-        }
-        else
-        {
-            high = mid;
-        }
-    }
-    return mid;
-}
 void solve()
 {
     int sum = 0, flag = 0;
-    int a = 150;
-    int b = 3;
-    cout << (a/10);
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n, 0);
+    f0(n)
+    {
+        cin >> a[i];
+        if (i == 0)
+            b[a[i] - 1] = 1;
+        else
+        {
+            if ((a[i] < n and b[a[i]] == 1) or (a[i] > 1 and b[a[i] - 2] == 1))
+            {
+                b[a[i] - 1] = 1;
+            }
+            else
+            {
+                flag = 1;
+                // break;
+                // cin>>a[i] ase..break krle to cin hbe na...so break dea jbe na
+            }
+        }
+    }
+    if (flag)
+        NO;
+    else
+        YES;
 }
 int32_t main()
 {
     fast();
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
 }
