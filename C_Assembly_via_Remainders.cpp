@@ -22,15 +22,15 @@ void solve()
     int sum = 0, flag = 0;
     int n;
     cin >> n;
-    cout << 1000 << " ";
     n--;
-    int k = 1000;
+    cout << 1000 << " ";
+    sum = 1000;
     f0(n)
     {
         int x;
         cin >> x;
-        k = k + x;
-        cout << k << " ";
+        sum += x;
+        cout << sum << " ";
     }
     cout << endl;
 }
