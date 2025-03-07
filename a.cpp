@@ -1,38 +1,16 @@
-// In the name of Allah the most beneficent the most merciful - sūrat l-naml(27:30)
+// C++ program to find the lower bound of a value in a
+// vector using std::lower_bound()
 #include <bits/stdc++.h>
 using namespace std;
-// #define int long long int
-#define endl '\n'
-#define nn 1000000007
-#define ff first
-#define ss second
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
-#define f0(n) for (int i = 0; i < n; i++)
-#define f1(n) for (int i = 1; i < n; i++)
-#define all(_a) _a.begin(), _a.end()
-#define debug(x) cerr << (#x) << " " << (x) << endl
-#define fast()                            \
-    {                                     \
-        ios_base::sync_with_stdio(false); \
-        cin.tie(NULL);                    \
-    }
-class a1
-{
-public:
-    int data;
-    a1(int a)
-    {
-        data = a;
-    }
-    void dis()
-    {
-        cout << data << endl;
-    }
-};
 
 int main()
 {
-    fast();
-   int 
+    vector<int> arr = {10, 20, 30, 40, 50};
+    // int n = sizeof(arr) / sizeof(arr[0]);
+    int n = 5;
+
+    // Finding lower bound for value 35 in array arr
+    cout << lower_bound(arr.begin(), arr.end(), 30) - arr.begin();
+
+    return 0;
 }

@@ -17,31 +17,15 @@ using namespace std;
         ios_base::sync_with_stdio(false); \
         cin.tie(NULL);                    \
     }
-double log_base(double a, double b)
-{
-    double low = 0, high = a, mid;
-    double epsilon = 1e-10; // Precision level
 
-    while (high - low > epsilon)
-    {
-        mid = (low + high) / 2;
-        if (pow(b, mid) < a)
-        {
-            low = mid;
-        }
-        else
-        {
-            high = mid;
-        }
-    }
-    return mid;
-}
 void solve()
 {
-    int sum = 0, flag = 0;
-    int a = 150;
-    int b = 3;
-    cout << (a/10);
+    set<int> set;
+    set.insert(1);
+    set.insert(3);
+    set.insert(-4);
+    for (auto i : set)
+        cout << i << endl;
 }
 int32_t main()
 {
