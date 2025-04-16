@@ -3,11 +3,10 @@
 using namespace std;
 #define int long long int
 #define endl '\n'
-#define nn 1000000007
-#define ff first
-#define ss second
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define nn cout << endl
+#define vc vector<int>
 #define f0(n) for (int i = 0; i < n; i++)
 #define f1(n) for (int i = 1; i < n; i++)
 #define all(_a) _a.begin(), _a.end()
@@ -20,15 +19,14 @@ using namespace std;
 
 void solve()
 {
-    set<int> set;
-    set.insert(1);
-    set.insert(3);
-    set.insert(-4);
-    for (auto i : set)
-        cout << i << endl;
+    int sum = 0, flag = 0;
+    
 }
 int32_t main()
 {
     fast();
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
 }
