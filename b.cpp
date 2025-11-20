@@ -3,10 +3,12 @@
 using namespace std;
 #define int long long int
 #define endl '\n'
-#define yes cout << "YES\n"
-#define no cout << "NO\n"
+#define nn 1000000007
+#define ff first
+#define ss second
+#define YES cout << "YES\n"
+#define NO cout << "NO\n"
 #define nn cout << endl
-#define vc vector<int>
 #define f0(n) for (int i = 0; i < n; i++)
 #define f1(n) for (int i = 1; i < n; i++)
 #define all(_a) _a.begin(), _a.end()
@@ -20,13 +22,70 @@ using namespace std;
 void solve()
 {
     int sum = 0, flag = 0;
-    
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    f0(n) cin >> a[i];
+    sort(all(a));
+    if (a[0] == a[1])
+    {
+        YES;
+        return;
+    }
+    f1(n)
+    {
+        if (a[i] % a[0] == 0)
+            flag++;
+    }
+    if (flag >= 2 and a[0] > 1)
+    {
+
+        YES;
+        return;
+    }
+    if (a[0] > 1 and flag < 2)
+    {
+        NO;
+        return;
+    }
+    vector<int> v1;
+    f1(n)
+    {
+        flag = 0;
+        for (int j = 2; j * j < a[i]; j++)
+        {
+            if (a[i] % j == 0)
+            {
+                flag = 1;
+                break;
+            }
+        }
+        // debug(!flag);
+        if (!flag)
+            v1.push_back(a[i]);
+    }
+    // debug(v1.size());
+    if (v1.size() == 1)
+    {
+        f1(n)
+        {
+            if ((a[i] % v1[0]) != 0)
+            {
+                YES;
+                return;
+            }
+        }
+        NO;
+        return;
+    }
+    else if (v1.size() > 1)
+        YES;
+    else
+        NO;
 }
 int32_t main()
 {
     fast();
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
+
+    solve();
 }

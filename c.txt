@@ -1,0 +1,40 @@
+1. a.cpp , b.cpp 2tai kno test case input nea thakbe na. only solve func
+2. c.cpp te gen_random(l,r) 2ta digit niye -> l, r mddhe 1ta digit return kre
+3. gen.cpp ta right upper btn e click kre run kray nte hbe(terminal e build) -> not in cph
+
+
+
+## create any number between l nd r ##
+
+for (int i = 0; i < n; i++)
+{
+    cout << gen_random(-20, 20) << " ";
+}
+
+
+## permutation ##
+
+vector<int> a;
+for (int i = 0; i < n; i++)
+{
+    a.push_back(gen_random(1, 10));
+}
+shuffle(all(a), rng);
+for (auto i : a)
+    cout << i << " ";
+
+
+
+## real numer ##
+
+inline double gen_random(double l, double r) { return uniform_real_distribution<double>(l, r)(rng); }
+call krr smy o data type check krte hbe
+
+
+
+## string ##
+for (int i = 0; i < n; i++)
+{
+    char a = 'a' + gen_random(0, 25);
+    cout << a;
+}
